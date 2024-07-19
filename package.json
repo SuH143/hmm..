@@ -1,0 +1,28 @@
+{
+  "name": "newone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuH143/hmm...git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuH143/hmm../issues"
+  },
+  "homepage": "https://github.com/SuH143/hmm..#readme",
+  "dependencies": {
+    "gh-pages": "^6.1.1",
+    "nodemon": "^3.1.4"
+  }
+}

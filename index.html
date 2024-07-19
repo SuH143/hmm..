@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Soul</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            width: 95%;
+            margin: 0 auto;
+        }
+        .dot-navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #717171;
+        }
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.2em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <h1>For my closest Friend</h1>
+                    <p class="signature">Shashi<br /></p>
+                    <p>
+                        Every moment with you seemed like a beautiful dream. your smile
+                        brightens my day, and your presence brings a different feeling of
+                        happiness to my life that I have never seen before.
+                    </p>
+                </div>
+                <div class="slide">
+                    <h1>Memories</h1>
+                    <p>
+                        Do you remember those days when we talked to each other, laughed
+                        together, and shared our thoughts about our professional and
+                        personal lives? <br />
+                        I can never forget those precious moments. Do you remember our last
+                        meeting on Holi? That day, I felt so lucky to be with you, making
+                        sure you weren’t alone. <br />
+                        I still smile thinking about how I brought a jug of water from the
+                        metro control room when you were hungover and thirsty. <br />
+                        I also remember our first conversation when you asked me to drop you
+                        at the metro station. <br />
+                        I remember our first meeting when you came 1.5 hours late, and I was
+                        calling and waiting for you at the metro. You wore a black dress.
+                        <br />
+                        I cherish every conversation we’ve had, from the first day to the
+                        last, but now I don't know from where should I start or how to
+                        handle this situation. <br />
+                        Today, I need you more than ever, and I couldn’t resist sending you
+                        this message.
+                    </p>
+                    <p class="">👇<br/></p>
+
+                </div>
+                <div class="slide">
+                    <h1>HOPE!</h1>
+                    <p>
+                        I hope you're doing well. I miss our connection and the time we
+                        spent together. I care about you deeply and would love for us to
+                        reconnect. In three months, I’m planning to change my workplace and
+                        life path, and it would mean a lot to me if we could talk before
+                        then. I want 'YOU' to start the conversation and express you're
+                        emotions. I want to hear you out and understand our connection.<br />
+                        My hope is that we can end our conflict.
+                    </p>
+                    <p class="signature">With all my thoughts<br /></p>
+                </div>
+            </div>
+            <div class="dot-navigation">
+                <span class="dot" onclick="showSlide(0)"></span>
+                <span class="dot active" onclick="showSlide(1)"></span>
+                <span class="dot" onclick="showSlide(2)"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.getElementById("slides");
+        const dots = document.querySelectorAll(".dot");
+
+        function showSlide(index) {
+            currentSlide = index;
+            const offset = -index * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        }
+
+        // Initialize the slider to show the second slide
+        document.addEventListener("DOMContentLoaded", (event) => {
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

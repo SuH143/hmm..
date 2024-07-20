@@ -196,7 +196,9 @@
 
             if (movedBy < -100 && currentSlide < dots.length - 1) currentSlide += 1;
             if (movedBy > 100 && currentSlide > 0) currentSlide -= 1;
-
+            if (!isAudioPlayed && currentSlide == 1) {
+                playAudio();
+            }
             setPositionByIndex();
 
             slides.classList.remove('grabbing');
@@ -226,9 +228,7 @@
             currentTranslate = currentSlide * -slides.clientWidth;
             prevTranslate = currentTranslate;
             setSliderPosition();
-            if (!isAudioPlayed && currentSlide == 1) {
-                playAudio();
-            }
+            
             dots.forEach((dot, i) => {
                 dot.classList.toggle("active", i === currentSlide);
             });

@@ -15,7 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            user-select: none; /* Disable text selection for the entire body */
+            user-select: none;
         }
         .container-wrapper {
             display: flex;
@@ -134,8 +134,6 @@
                         Today, I need you more than ever, and I couldn’t resist sending you
                         this message.
                     </p>
-                    <!-- <p class="">👇<br/></p> -->
-
                 </div>
                 <div class="slide">
                     <h1>HOPE!</h1>
@@ -151,6 +149,7 @@
                     <p class="signature">With all my thoughts<br /></p>
                 </div>
             </div>
+            <audio id="audio" src="audio1.mp3" loop></audio>
             <div class="dot-navigation">
                 <span class="dot" onclick="showSlide(0)"></span>
                 <span class="dot active" onclick="showSlide(1)"></span>
@@ -163,6 +162,7 @@
         let currentSlide = 0;
         const slides = document.getElementById("slides");
         const dots = document.querySelectorAll(".dot");
+        const audio = document.getElementById("audio");
 
         let isDragging = false;
         let startPos = 0;
@@ -233,7 +233,17 @@
             setPositionByIndex();
         }
 
-        // Initialize the slider to show the second slide
+        function playAudio() {
+            audio.volume = 0.1; // Set volume to a low level
+            audio.play();
+        }
+
+        // Play audio when user interacts with the page
+        document.addEventListener('click', function() {
+            playAudio();
+        }, { once: true });
+
+        // Initialize the slider to show the first slide
         document.addEventListener("DOMContentLoaded", (event) => {
             showSlide(currentSlide);
         });

@@ -101,7 +101,7 @@
 </head>
 <body>
     <div class="container-wrapper">
-        <div class="container">
+        <div class="container" id="container">
             <div class="slides" id="slides">
                 <div class="slide">
                     <h1>For my closest Friend</h1>
@@ -146,8 +146,7 @@
                         emotions. I want to hear you out and understand our connection.<br />
                         My hope is that we can end our conflict.
                     </p>
-                    <p class="signature">With all my thoughts</p>
-                    <p class="signature">🫣<br /></p>
+                    <p class="signature">With all my thoughts<br /></p>
                 </div>
             </div>
             <audio id="audio" src="audio1.mp3" loop></audio>
@@ -164,7 +163,7 @@
         const slides = document.getElementById("slides");
         const dots = document.querySelectorAll(".dot");
         const audio = document.getElementById("audio");
-        let isAudioPlayed = false
+        let isAudioPlayed = false;
 
         let isDragging = false;
         let startPos = 0;
@@ -180,6 +179,8 @@
         slides.addEventListener('touchstart', touchStart);
         slides.addEventListener('touchend', touchEnd);
         slides.addEventListener('touchmove', touchMove);
+
+        document.getElementById('container').addEventListener('click', playAudio, { once: true });
 
         function touchStart(event) {
             isDragging = true;
@@ -225,8 +226,8 @@
             currentTranslate = currentSlide * -slides.clientWidth;
             prevTranslate = currentTranslate;
             setSliderPosition();
-            if(!isAudioPlayed && currentSlide ==1){
-              playAudio();
+            if (!isAudioPlayed && currentSlide == 1) {
+                playAudio();
             }
             dots.forEach((dot, i) => {
                 dot.classList.toggle("active", i === currentSlide);
@@ -240,6 +241,7 @@
 
         function playAudio() {
             audio.volume = 0.69; // Set volume to a low level
+            isAudioPlayed = true;
             audio.play();
         }
 

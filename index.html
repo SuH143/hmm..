@@ -163,6 +163,7 @@
         const slides = document.getElementById("slides");
         const dots = document.querySelectorAll(".dot");
         const audio = document.getElementById("audio");
+        let isAudioPlayed = false
 
         let isDragging = false;
         let startPos = 0;
@@ -223,6 +224,9 @@
             currentTranslate = currentSlide * -slides.clientWidth;
             prevTranslate = currentTranslate;
             setSliderPosition();
+            if(!isAudioPlayed && currentSlide ==1){
+              playAudio();
+            }
             dots.forEach((dot, i) => {
                 dot.classList.toggle("active", i === currentSlide);
             });
@@ -234,14 +238,9 @@
         }
 
         function playAudio() {
-            audio.volume = 0.1; // Set volume to a low level
+            audio.volume = 0.369; // Set volume to a low level
             audio.play();
         }
-
-        // Play audio when user interacts with the page
-        document.addEventListener('click', function() {
-            playAudio();
-        }, { once: true });
 
         // Initialize the slider to show the first slide
         document.addEventListener("DOMContentLoaded", (event) => {
